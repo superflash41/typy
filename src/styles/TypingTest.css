@@ -1,0 +1,158 @@
+.typing-test {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    /* padding: 2rem; */
+    font-family: 'JetBrainsMono NF', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.typing-test h2 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.typing-container {
+    position: relative;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    cursor: text;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.typing-display {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-family: 'JetBrainsMono NF', 'Fira Code', monospace;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Character styling */
+.character {
+    position: relative;
+    transition: color 0.2s;
+}
+
+.character.correct {
+    color: var(--correct-color);
+}
+
+.character.incorrect {
+    color: var(--incorrect-color);
+    text-decoration: underline;
+}
+
+.character.current {
+    color: var(--current-color);
+    position: relative;
+}
+
+.character.current::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--current-color);
+    animation: cursor-blink 0.8s infinite;
+}
+
+.character.upcoming {
+    color: var(--text-secondary);
+}
+
+@keyframes cursor-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Hide actual input but keep it functional */
+.typing-input {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.start-prompt {
+    position: absolute;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0.5rem;
+}
+
+/* Metrics styling */
+.metrics-container {
+    margin-top: 1.5rem;
+}
+
+.metrics {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.metric-card {
+    flex: 1;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.metric-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.reset-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.reset-button:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 90%, black);
+}
+
+.reset-button:active {
+    transform: translateY(1px);
+}
