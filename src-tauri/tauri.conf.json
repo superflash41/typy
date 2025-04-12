@@ -13,8 +13,11 @@
     "windows": [
       {
         "title": "typy",
-        "width": 800,
-        "height": 600
+        "width": 1024,
+        "height": 768,
+        "resizable": true,
+        "minHeight": 600,
+        "minWidth": 800
       }
     ],
     "security": {
