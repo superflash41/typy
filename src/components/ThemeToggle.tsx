@@ -43,11 +43,11 @@ function ThemeToggle() {
         'purple': '🔮'
     };
 
-    const cycleTheme = () => {
-        const currentIndex = THEMES.indexOf(theme);
-        const nextIndex = (currentIndex + 1) % THEMES.length;
-        setTheme(THEMES[nextIndex]);
-    };
+    // const cycleTheme = () => {
+    //     const currentIndex = THEMES.indexOf(theme);
+    //     const nextIndex = (currentIndex + 1) % THEMES.length;
+    //     setTheme(THEMES[nextIndex]);
+    // };
 
     return (
         <div className="theme-toggle-container">

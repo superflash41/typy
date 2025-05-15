@@ -13,7 +13,14 @@ interface SessionStat {
     timeLimit?: number;
 }
 
-function TypingTest() {
+function TypingTest({
+    initialShowSettings = true,
+    onSettingsVisibilityChange = () => { }
+}: {
+    initialShowSettings?: boolean,
+    onSettingsVisibilityChange?: (value: boolean) => void
+}) {
+
     // setings
     const [category, setCategory] = useState("quotes");
     const [textLength, setTextLength] = useState("medium");
@@ -26,7 +33,7 @@ function TypingTest() {
     const [startTime, setStartTime] = useState<number | null>(null);
     const [endTime, setEndTime] = useState<number | null>(null);
     const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
-    const [showSettings, setShowSettings] = useState(true);
+    const [showSettings, setShowSettings] = useState(initialShowSettings);
     const [testComplete, setTestComplete] = useState(false);
     const [testActive, setTestActive] = useState(false);
     const [savedStats, setSavedStats] = useState(false);
@@ -34,6 +41,15 @@ function TypingTest() {
     const inputRef = useRef<HTMLInputElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const timerRef = useRef<number | null>(null);
+
+    useEffect(() => {
+        setShowSettings(initialShowSettings);
+    }, [initialShowSettings]);
+
+    const updateShowSettings = (value: boolean) => {
+        setShowSettings(value);
+        onSettingsVisibilityChange(value);
+    };
 
     // fetch some text from the backend
     useEffect(() => {
@@ -124,7 +140,7 @@ function TypingTest() {
         // start time
         if (input.length === 1 && userInput.length === 0) {
             setStartTime(Date.now());
-            setShowSettings(false);
+            updateShowSettings(false);
             setTestActive(true);
         }
 
@@ -208,7 +224,7 @@ function TypingTest() {
         setStartTime(null);
         setEndTime(null);
         setTimeRemaining(null);
-        setShowSettings(true);
+        updateShowSettings(true);
         setTestComplete(false);
         setTestActive(false);
         setSavedStats(false);
