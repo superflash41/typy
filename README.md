@@ -52,8 +52,12 @@ A light typing test game made to improve at typing speed.
 
 ## License
 
-MIT License
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-> This game was made by [superflash41](https://github.com/superflash41) using Rust.
+This game was made by [superflash41](https://github.com/superflash41) using Rust.
+
+<p align="center">
+  <img src="./public/typy-logo.png" alt="Typy Logo" width="100">
+</p>
