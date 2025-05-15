@@ -1,8 +1,10 @@
 :root {
+  /* Base font size for the app */
+  --base-font-size: 14px;
+
   /* Light theme (default) */
   --bg-primary: #f8f9fa;
   --bg-secondary: #fff8e8;
-  /* Changed to cream color */
   --text-primary: #212529;
   --text-secondary: #6c757d;
   --accent-color: #4361ee;
@@ -16,7 +18,6 @@
 .dark-theme {
   --bg-primary: #15161a;
   --bg-secondary: #252543;
-  /* Dark cream equivalent */
   --text-primary: #f8f9fa;
   --text-secondary: #eaeaea;
   --accent-color: #4cc9f0;
@@ -27,18 +28,105 @@
   --border-color: #8c949c;
 }
 
+.purple-theme {
+  --bg-primary: #2b2147;
+  --bg-secondary: #372963;
+  --text-primary: #f8f8ff;
+  --text-secondary: #d8c5ff;
+  --accent-color: #a082ff;
+  --correct-color: #6cf7b0;
+  --incorrect-color: #ff6b97;
+  --current-color: #a082ff;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --border-color: #8863d6;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   transition: background-color 0.3s, color 0.3s;
   margin: 0;
   padding: 0;
+  font-size: var(--base-font-size);
+  font-family: 'JetBrainsMono NF', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.content {
+  width: 100%;
+  max-width: 1080px;
+  margin-top: 1rem;
+}
+
+.nav-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+  gap: 0.5rem;
+}
+
+.nav-tab {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.nav-tab:hover {
+  color: var(--text-primary);
+}
+
+.nav-tab.active {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+/* Animation transitions */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .nav-tabs {
+    padding-bottom: 0.5rem;
+  }
+
+  .nav-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }

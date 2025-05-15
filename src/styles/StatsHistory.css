@@ -1,0 +1,121 @@
+.stats-history {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    animation: fade-in 0.5s ease-out;
+}
+
+.stats-history h2 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.stats-history.loading,
+.stats-history.error,
+.stats-history.empty {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.stats-history.error {
+    color: var(--incorrect-color);
+}
+
+.stats-history-grid {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.stats-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    padding: 1rem;
+    background-color: color-mix(in srgb, var(--bg-secondary) 80%, var(--accent-color));
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-row:hover {
+    background-color: color-mix(in srgb, var(--bg-secondary) 95%, var(--accent-color));
+}
+
+.wpm {
+    font-weight: 600;
+    color: var(--correct-color);
+}
+
+.accuracy {
+    font-weight: 600;
+}
+
+.details {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    background-color: var(--bg-primary);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-history-grid {
+        font-size: 0.9rem;
+    }
+
+    .stats-header,
+    .stat-row {
+        grid-template-columns: 1.5fr 0.8fr 0.8fr 1.5fr;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .stats-header,
+    .stat-row {
+        grid-template-columns: 1fr 0.7fr 0.7fr;
+    }
+
+    .stats-header>div:last-child,
+    .stat-row>div:last-child {
+        display: none;
+    }
+}

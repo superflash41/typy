@@ -1,0 +1,70 @@
+.test-settings {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    animation: slide-down 0.3s ease-out;
+}
+
+.settings-group {
+    margin-bottom: 1rem;
+}
+
+.settings-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.settings-options {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.settings-options button {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.settings-options button:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
+    border-color: var(--accent-color);
+}
+
+.settings-options button.option-selected {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .settings-options {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .settings-options button {
+        width: 100%;
+    }
+}
