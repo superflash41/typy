@@ -1,8 +1,9 @@
-#[derive(Debug, Clone)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Settings {
     pub theme: String,
     pub font_size: u8,
-    // add more if needed
 }
 
 impl Default for Settings {
