@@ -3,6 +3,7 @@ use std::{sync::Mutex, vec};
 use crate::models::{session::SessionStat, settings::Settings};
 
 #[derive(Debug)]
+#[allow(dead_code)]
 pub struct AppState {
     pub settings: Mutex<Settings>,
     /// A vector to hold session statistics.
