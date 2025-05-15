@@ -56,4 +56,4 @@ MIT License
 
 ---
 
-> This game was made by [superflash41](github.com/superflash41) using Rust.
+> This game was made by [superflash41](https://github.com/superflash41) using Rust.
